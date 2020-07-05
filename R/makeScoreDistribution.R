@@ -3,10 +3,10 @@
 #' Calculates the lift curve based on a score(numeric 0-1) and responce(TRUE/FALSE) vector
 #' @param score a numeric vector with the scores from the prodictive model
 #' @param response a boolean (TRUE or FALSE) vector with the real values from the dataset
-#' @param method method used to interpolate scores between groups, approx or spline
+#' @param method method used to interpolate scores between groups, approx for approxfun or spline for splinefun
 #' @param groups number of percentiles, default 100
 #' @param ... passed to aproximation method
-#' @return data.frame with the values of the Lift curve.
+#' @return function to aproximate probabilities based on score
 #' score = runif(1000)
 #' response = (score + rnorm(1000,0,0.1)) > 0.5
 #' fn = makeScoreDistribution(score,response,methond = 'approx')
