@@ -18,7 +18,7 @@ makeScoreDistribution(score, response, method = "approx", groups = 100, ...)
 \item{...}{passed to aproximation method}
 }
 \value{
-data.frame with the values of the Lift curve.
+function to aproximate probabilities based on score
 score = runif(1000)
 response = (score + rnorm(1000,0,0.1)) > 0.5
 fn = makeScoreDistribution(score,response,methond = 'approx')

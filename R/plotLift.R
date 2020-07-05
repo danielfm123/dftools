@@ -3,10 +3,10 @@
 #'  Plots lifts ffrom getLift function
 #'  @param lifts named list with lifts from getLift
 #'  @param ... lifts from getLift
-#'  @cuts points to show exact value of lifts
-#'  @value column to be ploted, cum_lift, lift, cum_response, response
-#'  @independient independient value of the plot, can be 'percentil' or 'mean_score'
-#'  @level_line should shouw the average responce rate? TRUE or FALSE
+#'  @param cuts points to show exact value of lifts
+#'  @param value column to be ploted, cum_lift, lift, cum_response, response
+#'  @param independient independient value of the plot, can be 'percentil' or 'mean_score'
+#'  @param level_line should shouw the average responce rate? TRUE or FALSE
 #'  
 #' @examples 
 #' score1 = runif(1000)
