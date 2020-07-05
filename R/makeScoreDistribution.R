@@ -17,15 +17,30 @@
 makeScoreDistribution = function(score, response, method = 'approx',groups = 100,...){
   lift = getLift(score,response,groups)
   
-  x = c(1,lift$mean_score,0)
-  y = c(first(lift$response_rate),lift$response_rate,last(lift$response_rate))
+  x = lift$mean_score
+  y = lift$response_rate
   
-  if(method == 'approx'){
-    fn = approxfun(x,y,...)
-  }else{
-    fn = splinefun(x,y,...)
-  }
+  min_x = last(lift$mean_score)
+  min_y = last(lift$response_rate)
+  
+  max_x = first(lift$mean_score)
+  max_y = first(lift$response_rate)
 
+  suppressWarnings({
+    if(method == 'approx'){
+      approximation = approxfun(x,y,...)
+    }else{
+      approximation = splinefun(x,y,...)
+    }
+  })
+
+  fn = function(.x){
+    estimate = approximation(.x)
+    estimate = ifelse(.x < min_x, min_y, estimate)
+    estimate = ifelse(.x > max_x, max_y, estimate)
+    return(estimate)
+  }
   
   return(fn)
 }
+
