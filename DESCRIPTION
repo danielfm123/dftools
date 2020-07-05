@@ -17,6 +17,7 @@ Imports:
     numDeriv,
     ggplot2,
     aws.s3,
-    DBI
+    DBI,
+    gridExtra
 Suggests: 
     testthat (>= 2.1.0)
