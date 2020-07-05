@@ -9,7 +9,7 @@
 #' @return data.frame with the values of the Lift curve.
 #' score = runif(1000)
 #' response = (score + rnorm(1000,0,0.1)) > 0.5
-#' fn = makeScoreDistribution(score,response,approx)
+#' fn = makeScoreDistribution(score,response,methond = 'approx')
 #' fn(0.5)
 #' 
 #' @author Daniel Fischer
@@ -29,8 +29,10 @@ makeScoreDistribution = function(score, response, method = 'approx',groups = 100
   suppressWarnings({
     if(method == 'approx'){
       approximation = approxfun(x,y,...)
-    }else{
+    }else if(method == 'spline'){
       approximation = splinefun(x,y,...)
+    }else{
+      stop('not valid method')
     }
   })
 
