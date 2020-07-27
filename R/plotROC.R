@@ -41,10 +41,10 @@ plotROC = function(rocs = list(),...,show_auc = T){
     geom_abline(slope=1, intercept=0, size = 1.5)
   
   if(show_auc){
-    library(gridExtra)
+    # library(gridExtra)
     auc_data = getAUC(rocs)
     gr = gr + 
-      annotation_custom(tableGrob(auc_data,rows=NULL), xmin=0.5, xmax=1, ymin=0, ymax=0.5)
+      annotation_custom(gridExtra::tableGrob(auc_data,rows=NULL), xmin=0.5, xmax=1, ymin=0, ymax=0.5)
   }
   return(gr)
 }
