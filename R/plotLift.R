@@ -7,7 +7,7 @@
 #' @param value column to be ploted, cum_lift, lift, cum_response, response
 #' @param independient independient value of the plot, can be 'percentil' or 'mean_score'
 #' @param level_line should shouw the average responce rate? TRUE or FALSE
-#'  
+#' @examples
 #' score1 = runif(1000)
 #' response1 = (score1 + rnorm(1000,0,0.1)) > 0.5
 #' lift1 = getLift(score1,response1)
@@ -18,7 +18,6 @@
 #' plotLift(lifts)
 #' #or
 #' plotLift(model1 = lift1, model2 = lift2) 
-#' 
 #' @author Daniel Fischer
 #' @export
 

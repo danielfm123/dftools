@@ -24,8 +24,12 @@ plotLift(
 
 \item{independient}{independient value of the plot, can be 'percentil' or 'mean_score'}
 
-\item{level_line}{should shouw the average responce rate? TRUE or FALSE
- 
+\item{level_line}{should shouw the average responce rate? TRUE or FALSE}
+}
+\description{
+Plots lifts from getLift function
+}
+\examples{
 score1 = runif(1000)
 response1 = (score1 + rnorm(1000,0,0.1)) > 0.5
 lift1 = getLift(score1,response1)
@@ -35,10 +39,7 @@ lift2 = getLift(score2,response2)
 lifts = list(model1 = lift1, model2 = lift2)
 plotLift(lifts)
 #or
-plotLift(model1 = lift1, model2 = lift2)}
-}
-\description{
-Plots lifts from getLift function
+plotLift(model1 = lift1, model2 = lift2) 
 }
 \author{
 Daniel Fischer
