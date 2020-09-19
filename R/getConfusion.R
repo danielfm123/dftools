@@ -32,7 +32,7 @@ getConfusion = function(score, response, umbral = 0.5,asMatrix = TRUE, asPortion
         spread(prediction,cases)
     }
     tabla = as.data.frame(tabla)
-    rownames(tabla) = tabla$response
+    rownames(tabla) = as.logical(tabla$response)
     tabla$response = NULL
     return(tabla)
   }else{
