@@ -16,7 +16,6 @@ Imports:
     digest,
     numDeriv,
     ggplot2,
-    aws.s3,
     DBI,
     gridExtra
 Suggests: 
