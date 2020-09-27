@@ -13,10 +13,10 @@ Imports:
     dplyr,
     purrr,
     stringr,
+    tidyr,
     digest,
     numDeriv,
     ggplot2,
-    aws.s3,
     DBI,
     gridExtra
 Suggests: 
