@@ -26,10 +26,10 @@ getConfusion = function(score, response, umbral = 0.5,asMatrix = TRUE, asPortion
   if(asMatrix){
     if(asPortion){
       tabla = select(confussion,-cases) %>% 
-        spread(prediction,portion)
+        spread(response,portion)
     }else{
       tabla = select(confussion,-portion) %>% 
-        spread(prediction,cases)
+        spread(response,cases)
     }
     tabla = as.data.frame(tabla)
     rownames(tabla) = as.logical(tabla$response)
