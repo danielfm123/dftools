@@ -46,12 +46,12 @@
 #'
 #' @export
 sqlExecute = function(server_name,query, param = c(),debug=F, ...){
-  try({
+  #try({
     sql = sqlGetConn(server_name)
     query = sqlGsub(query,param)
     if(debug){print(query)}
     dbExecute(sql,query,...)
     # dbCommit(poolCheckout(sql))
-  })
+  #})
   if(any(c("expression","character") %in% class(server_name)) & !"Pool" %in%  class(sql)){sqlClose(sql)}
 }
