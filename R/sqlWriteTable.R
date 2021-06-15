@@ -22,7 +22,7 @@
 #'
 #'@export
 sqlWriteTable = function(server_name,data,table,bulk = T,...){
-  try({
+  #try({
     sql = sqlGetConn(server_name)
     if(bulk){
       dbWriteTable(sql, table, data, append = TRUE,row.names = F,...) 
@@ -30,6 +30,6 @@ sqlWriteTable = function(server_name,data,table,bulk = T,...){
       query = sqlAppendTable(ANSI(),table,data,row.names = F)
       dbExecute(sql,query)
     }
-  })
+  #})
   if(any(c("expression","character") %in% class(server_name)) & !"Pool" %in%  class(sql)){sqlClose(sql)}
 }
