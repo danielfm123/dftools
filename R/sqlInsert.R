@@ -18,11 +18,11 @@
 sqlInsert = function(server_name,data,table){
   values = sql_script_insert(data,table)
   
-  try({
+  # try({
     sql = sqlGetConn(server_name)
     # print("insertando registros en tabla")
     map(values,function(x) try(dbExecute(sql,x)))
-  })
+  # })
   
   if(any(c("expression","character") %in% class(server_name)) & !"Pool" %in%  class(sql)){sqlClose(sql)}
 }
