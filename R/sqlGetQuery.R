@@ -32,12 +32,12 @@
 #'sqlGetQuery("local",q2,p2,dt=T) # as data table
 #'@export
 sqlGetQuery = function(server_name,query, param = c(),dt=FALSE,key=c(),  ...){
-  try({
+  #try({
     sql = sqlGetConn(server_name)
     query = sqlGsub(query,param)
     # print(query)
     rowset = dbGetQuery(sql,query,...)
-  })
+  #})
 
   if(any(c("expression","character") %in% class(server_name)) & !"Pool" %in%  class(sql)){sqlClose(sql)}
 
