@@ -24,6 +24,8 @@ sqlGetConn = function(server_name){
   # tryCatch({
     if("expression" %in% class(server_name)){
       connObj = eval(server_name)
+    }else if("function" %in% class(server_name)){
+      connObj = server_name()
     }else{
       connObj = server_name
     }
