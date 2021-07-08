@@ -13,6 +13,7 @@
 #'@param param character vector with the value of the parameters that would be used in query.
 #'@param dt boolean, If true, the results would be data table class.
 #'@param key character vector, it contains the names of the columns to be used as keys if return a data table.
+#'@param close boolean to force closing the connection after execution
 #'@param ... inherit parameters used in dbGetQuery().
 #'@usage sqlGetQuery(server_name, query, param=c(), dt=FALSE, key=c(), ...)
 #'@return A data frame or data table with query results.
@@ -31,7 +32,7 @@
 #'
 #'sqlGetQuery("local",q2,p2,dt=T) # as data table
 #'@export
-sqlGetQuery = function(server_name,query, param = c(),dt=FALSE,key=c(),  ...){
+sqlGetQuery = function(server_name,query, param = c(),dt=FALSE,key=c(),close = T,  ...){
   #try({
     sql = sqlGetConn(server_name)
     query = sqlGsub(query,param)
@@ -39,7 +40,7 @@ sqlGetQuery = function(server_name,query, param = c(),dt=FALSE,key=c(),  ...){
     rowset = dbGetQuery(sql,query,...)
   #})
 
-  if(any(c("expression","character") %in% class(server_name)) & !"Pool" %in%  class(sql)){sqlClose(sql)}
+  if(any(c("expression","character") %in% class(server_name)) | close){sqlClose(sql)}
 
   if(dt){
     safeLibrary("data.table")

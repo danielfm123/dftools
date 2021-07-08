@@ -23,10 +23,7 @@ sqlGetConn = function(server_name){
 
   # tryCatch({
     if("expression" %in% class(server_name)){
-      connObj = server_name
-      if("expression" %in% class(connObj)){
-        connObj = eval(connObj)
-      }
+      connObj = eval(server_name)
     }else{
       connObj = server_name
     }

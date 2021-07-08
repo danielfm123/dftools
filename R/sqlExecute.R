@@ -7,6 +7,7 @@
 #' @param query character, query structure with variant parameters between @'s, if they are.
 #' @param param character vector with the value of the parameters that would be used in query.
 #' @param debug boolean to show excecuted query.
+#' @param close boolean to force closing the connection after execution
 #' @param ... inherit parameters used in dbExecute().
 #' @usage sqlExecute(server_name, query, param=c(), ...)
 #' @author Daniel Fischer
@@ -45,7 +46,7 @@
 #'   dbDisconnect(connection) #end connection again
 #'
 #' @export
-sqlExecute = function(server_name,query, param = c(),debug=F, ...){
+sqlExecute = function(server_name,query, param = c(),debug=F,close = T, ...){
   #try({
     sql = sqlGetConn(server_name)
     query = sqlGsub(query,param)
@@ -53,5 +54,5 @@ sqlExecute = function(server_name,query, param = c(),debug=F, ...){
     dbExecute(sql,query,...)
     # dbCommit(poolCheckout(sql))
   #})
-  if(any(c("expression","character") %in% class(server_name)) & !"Pool" %in%  class(sql)){sqlClose(sql)}
+  if(any(c("expression","character") %in% class(server_name)) | close){sqlClose(sql)}
 }
