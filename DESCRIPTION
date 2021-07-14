@@ -1,7 +1,7 @@
 Package: dftools
 Type: Package
 Title: Data Science Tools
-Version: 0.2.1
+Version: 0.3.1
 Author: Daniel Fischer <dfischer@ug.uchile.cl>
 Maintainer: Daniel Fischer <dfischer@ug.uchile.cl>
 Description: Toolset with funtions for R 
