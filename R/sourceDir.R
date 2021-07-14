@@ -13,7 +13,6 @@
 sourceDir = function(path,
                      encoding = "UTF-8",
                      exclude = c(),
-                     echo = F,
                      ...) {
   if (!grepl("[/|\\]$", path)) {
     path = paste0(path, "/")
@@ -21,7 +20,7 @@ sourceDir = function(path,
   all_files = dir(path, "*.R$", include.dirs = F,recursive = T)
   lapply(setdiff(all_files, exclude),
          function(x) {
-           if(echo){print(x)}
+           print(x)
            source(paste0(path, x), encoding = encoding, ...)
          })
   # return(TRUE)
