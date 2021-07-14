@@ -4,7 +4,6 @@
 #' @param path character with the directory's path from we want to read R files.
 #' @param encoding character vector. The encoding(s) to be assumed.
 #' @param exclude character vector. Files we don't want to be readed as "filename.R".
-#' @param echo TRUE or FALSE to prnt sourced files
 #' @param ... All other parameters that are used in source function.
 #' @usage sourceDir(path, encoding= "UTF-8", exclude= c(), ...)
 #' @seealso Source function's dodumentation for more details, using help(source).
@@ -23,5 +22,5 @@ sourceDir = function(path,
            print(x)
            source(paste0(path, x), encoding = encoding, ...)
          })
-  # return(TRUE)
+  return(TRUE)
 }
